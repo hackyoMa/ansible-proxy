@@ -1,0 +1,40 @@
+server:
+  shutdown: GRACEFUL
+  compression:
+    enabled: true
+    mime-types:
+      - text/html
+      - text/xml
+      - text/plain
+      - text/css
+      - text/javascript
+      - application/json
+      - application/xml
+      - image/vnd.microsoft.icon
+      - image/svg+xml
+  ssl:
+    key-store-type: PKCS12
+spring:
+  application:
+    name: ansible-proxy
+  config:
+    # Configuration file path
+    import: optional:file:${CA_CONFIG_FILE:/opt/ansible_proxy/conf.properties}
+  threads:
+    virtual:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 4096MB
+      max-request-size: 4096MB
+logging:
+  level:
+    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: ERROR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

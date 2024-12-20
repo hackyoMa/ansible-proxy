@@ -1,0 +1,11 @@
+{
+  "pathPrefix": "/api",
+  "isStrict": true,
+  "allInOne": true,
+  "outPath": "./src/main/resources/static/doc",
+  "coverOld": true,
+  "createDebugPage": true,
+  "packageFilters": "com.github.ansibleproxy.*.controller.*",
+  "inlineEnum": true,
+  "allInOneDocFileName": "index.html"
+}

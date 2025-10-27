@@ -28,4 +28,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: hackyo/ansible-proxy:20241030
+          tags: hackyo/ansible-proxy:20251027

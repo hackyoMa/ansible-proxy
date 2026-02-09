@@ -15,7 +15,7 @@ COPY ansible.cfg /etc/ansible/ansible.cfg
 COPY ssh_config /etc/ssh/ssh_config
 COPY backend/target/backend-1.0.0.jar /opt/ansible_proxy/app.jar
 
-RUN chmod 644 /opt/ansible_proxy/app.jar
+RUN chmod 777 /opt/ansible_proxy/app.jar
 
 HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=3 CMD curl -fs -I -o /dev/null http://localhost:18880/ || exit 1
 

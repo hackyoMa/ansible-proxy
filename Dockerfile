@@ -15,9 +15,9 @@ COPY ansible.cfg /etc/ansible/ansible.cfg
 COPY ssh_config /etc/ssh/ssh_config
 COPY backend/target/backend-1.0.0.jar /opt/ansible_proxy/app.jar
 
-HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=3 CMD curl -fs -I -o /dev/null http://localhost:8080/ || exit 1
+HEALTHCHECK --interval=10s --timeout=5s --start-period=30s --retries=3 CMD curl -fs -I -o /dev/null http://localhost:18880/ || exit 1
 
-EXPOSE 8080
+EXPOSE 18880
 
 ENTRYPOINT ["container-init.sh"]
 CMD java ${JAVA_OPTS} -jar /opt/ansible_proxy/app.jar

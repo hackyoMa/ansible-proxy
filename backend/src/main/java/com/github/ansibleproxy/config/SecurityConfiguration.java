@@ -22,7 +22,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
 import java.security.interfaces.RSAPublicKey;
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -65,17 +64,7 @@ public class SecurityConfiguration {
 
     private void configureWhitelistAccess(HttpSecurity http) {
         PathPatternRequestMatcher.Builder requestMatcher = PathPatternRequestMatcher.withDefaults().basePath(WebConfig.CONTEXT_PATH);
-        http.authorizeHttpRequests(authorizeHttpRequests -> {
-            Arrays.stream(securityProperties.getAllWhitelist())
-                    .map(requestMatcher::matcher)
-                    .forEach(matcher -> authorizeHttpRequests.requestMatchers(matcher).permitAll());
-            securityProperties.getWhitelist().entrySet().stream()
-                    .flatMap(entry -> Arrays.stream(entry.getValue())
-                            .map(path -> requestMatcher.matcher(entry.getKey(), path))
-                    ).forEach(matcher -> authorizeHttpRequests.requestMatchers(matcher).permitAll());
-            authorizeHttpRequests.requestMatchers(requestMatcher.matcher("/**"))
-                    .authenticated().anyRequest().permitAll();
-        });
+        http.authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests.requestMatchers(requestMatcher.matcher("/**")).permitAll());
     }
 
     @Bean

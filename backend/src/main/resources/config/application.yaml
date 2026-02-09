@@ -1,0 +1,42 @@
+server:
+  shutdown: GRACEFUL
+  compression:
+    enabled: true
+    mime-types:
+      - text/html
+      - text/xml
+      - text/plain
+      - text/css
+      - text/javascript
+      - application/json
+      - application/xml
+      - image/vnd.microsoft.icon
+      - image/svg+xml
+      - font/woff2
+spring:
+  application:
+    name: ansible-proxy
+  main:
+    banner-mode: off
+  config:
+    # Configuration file path
+    import: optional:file:${FF_CONFIG_FILE:/opt/ansible_proxy/config/conf.properties}
+  threads:
+    virtual:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 4096MB
+      max-request-size: 4096MB
+  messages:
+    basename: i18n/messages
+    fallback-to-system-locale: false
+logging:
+  level:
+    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: ERROR
+    org.eclipse.jetty.ee11.servlet.ServletChannel: ERROR
+security:
+  all-whitelist:
+  whitelist:
+    POST:
+      - /user/_login

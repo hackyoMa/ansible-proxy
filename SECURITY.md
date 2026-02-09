@@ -9,7 +9,7 @@ If there are any vulnerabilities in **Ansible Proxy**, don't hesitate to _report
 
    If you have a fix, that is most welcome -- please attach or summarize it in your message!
 
-3. We will evaluate the vulnerability and, if necessary, release a fix or mitigating steps to address it. We will contact you to let you know the outcome, and will credit you in the report.
+3. We will evaluate the vulnerability and, if necessary, release a fix or mitigating steps to address it. We will reach out to you to let you know the outcome, and will credit you in the report.
 
    Please **do not disclose the vulnerability publicly** until a fix is released!
 

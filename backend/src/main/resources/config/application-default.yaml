@@ -1,0 +1,26 @@
+server:
+  servlet:
+    session:
+      timeout: ${AP_TASK_TIMEOUT:1h}
+  http-port: ${APP_PORT:18880}
+  http2:
+    enabled: ${APP_HTTPS:false}
+  ssl:
+    enabled: ${APP_HTTPS:false}
+    port: ${APP_HTTPS_PORT:18881}
+    forced: ${APP_HTTPS_FORCED:true}
+    certificate: file:${APP_HTTPS_CERTIFICATE:/opt/ansible_proxy/ssl/ssl_certificate.crt}
+    certificate-private-key:  file:${APP_HTTPS_CERTIFICATE_PRIVATE_KEY:/opt/ansible_proxy/ssl/ssl_private.key}
+logging:
+  level:
+    root: ${APP_LOG_LEVEL:INFO}
+  file:
+    name: ${APP_LOG_DIR:/opt/ansible_proxy/logs}/log.log
+security:
+  secret:
+    private-key: ${APP_SECRET_PRIVATE_KEY:/opt/ansible_proxy/secret/private-key.pem}
+    public-key: ${APP_SECRET_PUBLIC_KEY:/opt/ansible_proxy/secret/public-key.pem}
+task:
+  folder: ${AP_TASK_FOLDER:/opt/ansible_proxy/tasks}/
+  clean-file: ${AP_TASK_CLEAN_FILE:true}
+  debug: ${AP_TASK_DEBUG:false}

@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>4.0.2</version>
         <relativePath/>
     </parent>
 
@@ -16,94 +16,46 @@
     <version>1.0.0</version>
     <name>Ansible Proxy</name>
     <description>Ansible Agent Execution</description>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
+
+    <url>https://github.com/hackyoMa/ansible-proxy</url>
+    <licenses>
+        <license>
+            <name>GPL-3.0-only</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>hackyo</name>
+            <email>137120918@qq.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:https://github.com/hackyoMa/ansible-proxy.git</connection>
+        <developerConnection>scm:git:https://github.com/hackyoMa/ansible-proxy.git</developerConnection>
+        <url>https://github.com/hackyoMa/ansible-proxy</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <java.version>21</java.version>
-        <skipTests>true</skipTests>
-        <smart-doc-maven-plugin.version>3.0.4</smart-doc-maven-plugin.version>
-        <exec-maven-plugin.version>3.2.0</exec-maven-plugin.version>
+        <java.version>25</java.version>
+        <postgresql.version>42.7.9</postgresql.version>
+        <redisson.version>4.2.0</redisson.version>
+        <ulid.version>8.3.0</ulid.version>
+        <commons-codec.version>1.21.0</commons-codec.version>
+        <commons-exec.version>1.6.0</commons-exec.version>
+        <lombok.version>1.18.42</lombok.version>
+        <smart-doc.version>3.1.2</smart-doc.version>
+        <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.ly.smart-doc</groupId>
-                <artifactId>smart-doc-maven-plugin</artifactId>
-                <version>${smart-doc-maven-plugin.version}</version>
-                <configuration>
-                    <configFile>./src/main/resources/smart-doc.json</configFile>
-                    <projectName>${project.name}</projectName>
-                    <includes>
-                        <include>org.springframework.data:spring-data-commons</include>
-                        <include>${project.groupId}:.*</include>
-                    </includes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>html</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>backend</module>
+    </modules>
 
 </project>

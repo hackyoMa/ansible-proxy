@@ -2,12 +2,8 @@
 
 _Ansible Agent Execution_
 
-#### Editor plugins
-
-> - Lombok
->   > - [https://projectlombok.org/](https://projectlombok.org/)
-
 #### Editor configuration
 
 > - Lombok
+>   > - [https://projectlombok.org/](https://projectlombok.org/)
 >   > - Enable annotation processing

@@ -1,0 +1,39 @@
+{
+  "pathPrefix": "/api",
+  "isStrict": true,
+  "allInOne": true,
+  "outPath": "./src/main/resources/static/doc",
+  "coverOld": true,
+  "createDebugPage": true,
+  "packageFilters": "com.github.ansibleproxy.*.controller.*",
+  "inlineEnum": true,
+  "allInOneDocFileName": "index.html",
+  "requestHeaders": [
+    {
+      "name": "Authorization",
+      "type": "string",
+      "desc": "authentication key",
+      "value": "Bearer eyJraWQiOiI0YjM5NjY0Zjc3NjgyNDQ2NzA1Y2EyMmIwNGFhZGI3ZTI1NWVmOGIwMTc3MDc2ZGQwODRhM2M0ZGU3MjhlMWFjIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJkZW1vLXByb2plY3QiLCJzdWIiOiIwMUpKSzZGUVMwSzNONks0SkFFQVA1WkM3UCIsImF1ZCI6ImRlbW8tcHJvamVjdCIsIm5iZiI6MTc2NDY1NTg1NSwiaWF0IjoxNzY0NjU1ODU1LCJqdGkiOiIwMUtCRVRZWEdTUUtDVFc5S1o1QkJRMlFGQyJ9.I23rV6SW0Tcv_qyu-aU2zxaPb8P_VUwN5BPZFIe3JsARDe5ItYJth5wg9482s9Ctb-OH7KYay5TNb6p9Mr6yOnYg09OwySzdDXLzus9glc_WB4BuDv3nzgikAmdZ12fYGG8kq1F8se079eOYEGmynPXbu63kjM26i8Mvo7l52cleNwY6aXaHP6SQ23kAiWMff59Vezy8Mtqx3RTE28qgbEiw6Z6Kgie-UDcqSNcxsUWGfkA3-3j3vUIGjtiKeMiuD5tHG79Uk1iFrzqhS055zS-oG74CTfy0AO8OUIRmVCLQq4RyTsNrTVDbJUZhuVvvkN4jZC5zztp3LAI0M22SQQ",
+      "required": true,
+      "since": "-",
+      "excludePathPatterns": "/api/user/_login"
+    },
+    {
+      "name": "X-API-Version",
+      "type": "string",
+      "desc": "api version",
+      "value": "1.0.0",
+      "required": false,
+      "since": "-"
+    }
+  ],
+  "revisionLogs": [
+    {
+      "version": "1.0.0",
+      "revisionTime": "2022-04-01 00:00:00",
+      "status": "create",
+      "author": "hackyo",
+      "remarks": "release"
+    }
+  ]
+}
